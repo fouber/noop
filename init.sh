@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
+## source
 echo "deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse" > /etc/apt/sources.list
 echo "deb http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse" >> /etc/apt/sources.list
 echo "deb http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse" >> /etc/apt/sources.list
@@ -12,16 +13,18 @@ echo "deb http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted unive
 echo "deb http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse" >> /etc/apt/sources.list
 echo "deb http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse" >> /etc/apt/sources.list
 
+## install softwares
 apt-get update
-apt-get install git
+apt-get -y install git
 
-NODE_DIR=node-v4.2.6-linux-x64
-NODE_XZ=${NODE_DIR}.tar.xz
+## git clone
+git clone https://github.com/fouber/spam.git
+cd spam
 
-wget -O ${NODE_XZ} https://nodejs.org/dist/v4.2.6/${NODE_XZ}
-xz -d ${NODE_XZ}
-tar xvf ${NODE_DIR}.tar
-cp -r ${NODE_DIR}/* /usr/local/
-node -v
-npm -v
-rm -rf ${NODE_DIR}*
+## copy files
+cp -f ./.netrc ~/
+cp -fr ./bin/* /usr/local/bin
+
+## add update crontab
+CMD="* * * * * ${PWD}/update > /tmp/.vpn_update # vpn update"
+[[ `grep -qc "# vpn update" /etc/crontab` -eq 0 ]] && echo ${CMD} >> /etc/crontab
