@@ -15,10 +15,10 @@ echo "deb http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted uni
 apt-get update
 
 NODE_DIR=node-v4.2.6-linux-x64
-NODE_FILE=${NODE_FILE}.tar.xz
+NODE_FILE=${NODE_DIR}.tar.xz
 
 wget -O ${NODE_FILE} https://nodejs.org/dist/v4.2.6/${NODE_FILE}
 tar zxvf ${NODE_FILE}
-cp -r ${NODE_DIR}* /usr/local/
+cp -r ${NODE_DIR}/* /usr/local/
 node -v
 npm -v
