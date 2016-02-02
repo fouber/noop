@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if [ $# -eq 2 ]; then
+
+    USERNAME=$1
+    PASSWORD=$2
+
+    CONF="/tmp/.pppoe-cfg.txt"
+
+    echo "${USERNAME}"  > ${CONF}
+    echo "eth0"        >> ${CONF}
+    echo "no"          >> ${CONF}
+    echo "server"      >> ${CONF}
+    echo "${PASSWORD}" >> ${CONF}
+    echo "${PASSWORD}" >> ${CONF}
+    echo "0"           >> ${CONF}
+    echo "y"           >> ${CONF}
+
+    /usr/sbin/pppoe-setup < ${CONF}
+
+    rm -rf ${CONF}
+
+else
+    echo "Usage: pppoe-init username password"
+fi
