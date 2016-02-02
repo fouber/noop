@@ -5,9 +5,9 @@ BRR='\033[49m'
 CWL='\033[37m'
 CWR='\033[39m'
 
+printf "${CWL}\n"
+printf "                        ${BRL} FBI WARNING ${BRR}\n"
 printf "\n"
-printf "                       ${BRL} FBI WARNING ${BRR}\n"
-printf "\n${CWL}"
 printf " Federal Law provides severe civil and criminal penalties for \n"
 printf " the unauthorized reproduction, distribution, or exhibition of \n"
 printf " copyrighted motion pictures (Title 17, United States Code, \n"
