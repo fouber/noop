@@ -1,5 +1,7 @@
 #!/bin/bash
 
+clear
+
 while true
 do
     pppoe-stop 2>&1 1>/dev/null
