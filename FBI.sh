@@ -2,8 +2,8 @@
 
 BRL='\033[41m'
 BRR='\033[49m'
-CWL='\033[37m'
-CWR='\033[39m'
+CWL='\033[1;37m'
+CWR='\033[0m'
 
 printf "${CWL}\n"
 printf "                        ${BRL} FBI WARNING ${BRR}\n"
