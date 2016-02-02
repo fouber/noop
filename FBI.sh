@@ -6,7 +6,7 @@ CWL='\033[37m'
 CWR='\033[39m'
 
 printf "\n"
-printf "                      ${BRL} FBI WARNING ${BRR}\n"
+printf "                       ${BRL} FBI WARNING ${BRR}\n"
 printf "\n${CWL}"
 printf " Federal Law provides severe civil and criminal penalties for \n"
 printf " the unauthorized reproduction, distribution, or exhibition of \n"
