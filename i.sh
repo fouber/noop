@@ -15,6 +15,8 @@ echo "deb-src http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted
 apt-get update
 apt-get -y install git
 
-cd /tmp
+WORKDIR=/tmp
+
+cd ${WORKDIR}
 git clone https://github.com/fouber/spam.git
-sh spam/bin/init.sh
+sh ${WORKDIR}/spam/bin/init
