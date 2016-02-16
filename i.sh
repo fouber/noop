@@ -19,7 +19,6 @@ apt-get -y install git
 
 # clone
 WORKDIR=/tmp/spam
-printf "Repository Name: "
-read REPO_SLUG
+read -p "Repository Name: " REPO_SLUG
 git clone https://github.com/${REPO_SLUG}.git ${WORKDIR}
 sh ${WORKDIR}/bin/init ${WORKDIR}
