@@ -4,11 +4,11 @@
 BASE_URL=https://raw.githubusercontent.com/fouber/noop/master
 
 # base url
-function fetch(){
+fetch(){
     REMOTE=$1
     LOCAL=$2/${REMOTE}
     wget -q ${BASE_URL}/${REMOTE} -O ${LOCAL}
-    return ${LOCAL}
+    echo ${LOCAL}
 }
 
 # timezone
@@ -43,11 +43,9 @@ apt-get purge --auto-remove make g++
 apt-get clean
 
 # pppoe-init
-fetch pppoe-init /usr/sbin
-chmod 777 $?
+chmod 777 $(fetch pppoe-init /usr/sbin)
 
 # FBI
-fetch FBI /usr/sbin
-FBI_WARNI_PATH=$?
+FBI_WARNI_PATH=$(fetch FBI /usr/sbin)
 chmod 777 ${FBI_WARNI_PATH}
 echo "bash ${FBI_WARNI_PATH}" >> ~/.bashrc
