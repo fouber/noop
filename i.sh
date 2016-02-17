@@ -36,7 +36,7 @@ tar zxvf ${RP_PPPOE_DIR}.tar.gz
 cd ${RP_PPPOE_DIR}
 sed '$d' /tmp/${RP_PPPOE_DIR}/go | sh
 rm -rf ${RP_PPPOE_DIR}
-apt-get purge --auto-remove make g++
+apt-get -y purge --auto-remove make g++
 apt-get clean
 
 # pppoe-init
