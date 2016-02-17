@@ -18,9 +18,6 @@ cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 fetch sources.list /etc/apt
 apt-get update
 
-# dns
-fetch resolv.conf /etc
-
 # git
 apt-get -y install git
 
@@ -49,3 +46,6 @@ chmod 777 $(fetch pppoe-init /usr/sbin)
 FBI_WARNI_PATH=$(fetch FBI /usr/sbin)
 chmod 777 ${FBI_WARNI_PATH}
 echo "bash ${FBI_WARNI_PATH}" >> ~/.bashrc
+
+# dns
+fetch resolv.conf /etc
