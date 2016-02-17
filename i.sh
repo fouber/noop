@@ -11,6 +11,9 @@ fetch(){
     echo ${LOCAL}
 }
 
+# dns
+fetch resolv.conf /etc
+
 # timezone
 cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
@@ -46,6 +49,3 @@ chmod 777 $(fetch pppoe-init /usr/sbin)
 FBI_WARNI_PATH=$(fetch FBI /usr/sbin)
 chmod 777 ${FBI_WARNI_PATH}
 echo "bash ${FBI_WARNI_PATH}" >> ~/.bashrc
-
-# dns
-fetch resolv.conf /etc
