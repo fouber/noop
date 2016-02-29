@@ -42,6 +42,14 @@ apt-get clean
 # pppoe-init
 chmod 777 $(fetch pppoe-init /usr/sbin)
 
+# phantomjs
+PHANTOMJS_DIR=phantomjs-2.1.1-linux-i686
+cd /tmp
+wget https://bitbucket.org/ariya/phantomjs/downloads/${PHANTOMJS_DIR}.tar.bz2
+tar jxvf ${PHANTOMJS_DIR}.tar.bz2
+# mv ${PHANTOMJS_DIR}
+
+
 # FBI
 FBI_WARNI_PATH=$(fetch FBI /usr/sbin)
 chmod 777 ${FBI_WARNI_PATH}
