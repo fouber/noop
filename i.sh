@@ -54,11 +54,7 @@ chmod 777 $(fetch pppoe-init /usr/sbin)
 
 # phantomjs
 apt-get -y install libfontconfig
-PHANTOMJS_DIR=phantomjs-2.1.1-linux-i686
-cd /tmp
-wget https://bitbucket.org/ariya/phantomjs/downloads/${PHANTOMJS_DIR}.tar.bz2
-tar jxvf ${PHANTOMJS_DIR}.tar.bz2
-mv ${PHANTOMJS_DIR}/bin/phantomjs /usr/sbin
+wget -qO /usr/sbin/phantomjs http://7xrde2.com1.z0.glb.clouddn.com/phantomjs
 phantomjs -v
 
 # git
