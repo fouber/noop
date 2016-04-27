@@ -56,6 +56,7 @@ chmod 777 $(fetch pppoe-init /usr/sbin)
 # phantomjs
 apt-get -y install libfontconfig
 wget -qO /usr/sbin/phantomjs http://7xrde2.com1.z0.glb.clouddn.com/phantomjs
+chmod 777 /usr/sbin/phantomjs
 phantomjs -v
 
 # git
