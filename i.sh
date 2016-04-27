@@ -40,7 +40,8 @@ CONF="/tmp/.pppoe-cfg.txt"
 echo "${PPPOE_USERNAME}"  > ${CONF}
 echo "eth0"              >> ${CONF}
 echo "no"                >> ${CONF}
-echo "server"            >> ${CONF}
+echo "223.5.5.5"         >> ${CONF}
+echo "223.6.6.6"         >> ${CONF}
 echo "${PPPOE_PASSWORD}" >> ${CONF}
 echo "${PPPOE_PASSWORD}" >> ${CONF}
 echo "0"                 >> ${CONF}
