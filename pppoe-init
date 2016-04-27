@@ -10,7 +10,8 @@ if [ $# -eq 2 ]; then
     echo "${USERNAME}"  > ${CONF}
     echo "eth0"        >> ${CONF}
     echo "no"          >> ${CONF}
-    echo "server"      >> ${CONF}
+    echo "223.5.5.5"   >> ${CONF}
+    echo "223.6.6.6"   >> ${CONF}
     echo "${PASSWORD}" >> ${CONF}
     echo "${PASSWORD}" >> ${CONF}
     echo "0"           >> ${CONF}
