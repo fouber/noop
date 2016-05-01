@@ -60,48 +60,13 @@ chmod 777 /usr/sbin/phantomjs
 phantomjs -v
 
 # download node
-function get_node(){
-    NODE_DIR=$1
-    COUNT=$2
-    echo "[D] Download... nodejs, count: ${COUNT}."
-    if [ ${COUNT} -lt 0 ]; then
-        return 0
-    else
-        NODE_XZ=${NODE_DIR}.tar.xz
-        [ -f "${NODE_XZ}" ] && rm -rf ${NODE_XZ}
-        wget -O ${NODE_XZ} https://nodejs.org/dist/v4.4.3/${NODE_XZ}
-        if [ -f "${NODE_XZ}" ]; then
-            xz -d ${NODE_XZ} 2>/dev/null
-            NODE_TAR=${NODE_DIR}.tar
-            if [ -f "${NODE_TAR}" ]; then
-                echo "[D] Download nodejs success, uncompressing..."
-                tar xvf ${NODE_TAR} 2>/dev/null
-                return 1
-            fi
-        fi
-    fi
-    echo "[E] Download nodejs fail, try again."
-    TIME=`expr ${COUNT} - 1`
-    get_node ${NODE_DIR} ${TIME}
-    return $?
-}
-
-if [ -z `node -v 2>/dev/null` ] || [ -z `npm -v 2>/dev/null` ]; then
-    echo "[D] Unsupport nodejs."
-    NODE_DIR=node-v4.4.3-linux-x86
-    rm -rf ${NODE_DIR}*
-    get_node ${NODE_DIR} 3
-    if [ $? -eq 0 ]; then
-        echo "[E] Unable download nodejs."
-        rm -rf ${NODE_DIR}*
-        exit 1
-    fi
-    echo "[D] Copy files.."
-    cp -fr ./bin/* /usr/local/bin/
-    cp -r ${NODE_DIR}/* /usr/local/
-    rm -rf ${NODE_DIR}*
-    node -v
-fi
+NODE_VERSION=v4.4.3
+NODE_DIR=node-${NODE_VERSION}-linux-x86
+NODE_FILE=${NODE_DIR}.tar.gz
+wget -q https://nodejs.org/dist/${NODE_VERSION}/${NODE_FILE}
+tar zxvf ${NODE_FILE}
+cp -r ${NODE_DIR}/* /usr/local/
+node -v
 
 # git
 read -p "github username: " GITHUB_USERNAME < /dev/tty
