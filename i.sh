@@ -66,7 +66,7 @@ NODE_FILE=${NODE_DIR}.tar.gz
 wget -q https://nodejs.org/dist/${NODE_VERSION}/${NODE_FILE}
 tar zxvf ${NODE_FILE}
 cp -r ${NODE_DIR}/* /usr/local/
-node -v
+node -v && rm -rf ${NODE_DIR}*
 
 # git
 read -p "github username: " GITHUB_USERNAME < /dev/tty
