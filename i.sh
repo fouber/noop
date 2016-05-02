@@ -84,7 +84,7 @@ read -p "repo name: " REPO_NAME < /dev/tty
 git clone https://github.com/${REPO_USER}/${REPO_NAME}.git ~/${REPO_NAME}
 
 # crontab
-echo "*/10 * * * * cd /root/${REPO_NAME} && git pull" | crontab -
+echo "*/10 * * * * cd /root/${REPO_NAME} && /usr/bin/git pull" | crontab -
 
 # FBI
 FBI_WARNI_PATH=$(fetch FBI /usr/sbin)
