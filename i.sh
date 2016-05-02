@@ -78,6 +78,14 @@ echo "machine github.com"  > ~/.netrc
 echo "login ${GITHUB_USERNAME}" >> ~/.netrc
 echo "password ${GITHUB_PASSWORD}" >> ~/.netrc
 
+# clone
+read -p "repo user: " REPO_USER < /dev/tty
+read -p "repo name: " REPO_NAME < /dev/tty
+git clone https://github.com/${REPO_USER}/${REPO_NAME}.git ~/spam
+
+# crontab
+echo  "*/10 * * * * cd /home/root && git pull"  >> /var/spool/cron/root
+
 # FBI
 FBI_WARNI_PATH=$(fetch FBI /usr/sbin)
 chmod 777 ${FBI_WARNI_PATH}
