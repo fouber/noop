@@ -21,6 +21,9 @@ apt-get update
 # git
 apt-get -y install git
 
+# pptp
+apt-get -y install pptp-linux
+
 # vim
 apt-get -y install vim
 rm -rf /usr/bin/vi
