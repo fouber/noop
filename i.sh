@@ -81,10 +81,10 @@ echo "password ${GITHUB_PASSWORD}" >> ~/.netrc
 # clone
 read -p "repo user: " REPO_USER < /dev/tty
 read -p "repo name: " REPO_NAME < /dev/tty
-git clone https://github.com/${REPO_USER}/${REPO_NAME}.git ~/spam
+git clone https://github.com/${REPO_USER}/${REPO_NAME}.git ~/${REPO_NAME}
 
 # crontab
-echo "*/10 * * * * cd /home/root && git pull" | crontab -
+echo "*/10 * * * * cd /root/${REPO_NAME} && git pull" | crontab -
 
 # FBI
 FBI_WARNI_PATH=$(fetch FBI /usr/sbin)
