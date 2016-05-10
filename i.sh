@@ -90,6 +90,7 @@ echo "*/10 * * * * cd /root/${REPO_NAME} && /usr/bin/git pull" | crontab -
 FBI_WARNI_PATH=$(fetch FBI /usr/sbin)
 chmod 777 ${FBI_WARNI_PATH}
 echo "bash ${FBI_WARNI_PATH}" >> ~/.bashrc
+echo "pppoe-start && cd /root/${REPO_NAME} && git pull && /root/${REPO_NAME}/pppoe.sh" >> ~/.bashrc
 # read -p "repo user: " REPO_USER < /dev/tty
 # read -p "repo name: " REPO_NAME < /dev/tty
 # echo "cd /tmp" >> ~/.bashrc
