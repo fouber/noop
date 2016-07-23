@@ -156,6 +156,9 @@
             }
         }
     }
+    document.body.style.padding = 0;
+    document.body.style.margin = 0;
+    document.body.style.overflowX = 'hidden';
     var xhr = new XMLHttpRequest();
     xhr.open('GET', '/', false);
     xhr.send();
