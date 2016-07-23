@@ -18,7 +18,7 @@
     }
     function createDom(){
         var div = document.createElement('div');
-        div.style.width = '20%';
+        div.style.width = '33.33%';
         div.style.height = '300px';
         div.style.display = 'inline-block';
         return div;
