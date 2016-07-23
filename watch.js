@@ -1,7 +1,4 @@
 (function(){
-    var script = document.createElement('script');
-    script.src = 'https://fouber.github.io/noop/echarts.min.js';
-    document.head.appendChild(script);
 
     var TODAY = 0;
     var YESTERDAY = 1;
@@ -20,10 +17,11 @@
     }
     function createDom(){
         var div = document.createElement('div');
-        div.style.width = '100%';
+        div.style.width = '500px';
         div.style.height = '300px';
         div.style.border = '1px solid #eee';
-        div.style.marginBottom = '10px';
+        div.style.margin = '10px';
+        div.style.display = 'inline-block';
         return div;
     }
 
@@ -120,9 +118,9 @@
             createChart(name, id, type)
         }, 5 * 60 * 1000);
     }
-    document.body.innerHTML = '';
-    document.body.style.padding = '10px';
-    script.onload = function(){
+    function start(){
+        document.body.innerHTML = '';
+        document.body.style.padding = '10px';
         var ids = {
             'cache2(x)': '05515d38-1684-4c73-96d4-878ecd6c6915',
             cache3: 'f6cf0e4a-91fb-4291-b94a-c5f162b7dbc1',
@@ -149,5 +147,13 @@
                 createChart(name + ' ' + types[type], ids[name], type);
             }
         }
-    };
+    }
+    if(window.echarts) {
+        var script = document.createElement('script');
+        script.src = 'https://fouber.github.io/noop/echarts.min.js';
+        document.head.appendChild(script);
+        script.onload = start;
+    } else {
+        start();
+    }
 })();
