@@ -138,7 +138,7 @@
             // 'storage': '已使用容量',
             // 'storage_us': '容量使用率',
             // 'cpu_us': 'CPU负载',
-            // 'qps': 'QPS',
+            'qps': 'QPS',
             // 'cache_hit_ratio': '缓存命中率',
 
         };
