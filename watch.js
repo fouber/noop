@@ -87,10 +87,10 @@
         }
     }
 
-    function createChart(name, id, type){
+    function createChart(name, id, type, container){
         var div = createDom();
         type = type || 'in_flow';
-        document.body.appendChild(div);
+        (container || document.body).appendChild(div);
         var myChart = echarts.init(div);
         var opt = genOpt(name, TODAY);
         myChart.setOption(opt);
@@ -142,8 +142,13 @@
 
         };
         for(var name in ids){
+            var h1 = document.createElement('h1');
+            h1.innerHTML = name;
+            document.body.appendChild(h1);
+            var div = document.createElement('div');
+            document.body.appendChild(div);
             for(var type in types){
-                createChart(name + ' ' + types[type], ids[name], type);
+                createChart(types[type], ids[name], type, div);
             }
         }
     }
