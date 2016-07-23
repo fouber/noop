@@ -5,6 +5,7 @@
     var TODAY_STR = '今天';
     var YESTERDAY_STR = '昨天';
     var MC_GTK = 0;
+    var INTERVAL_TIME = 60 * 1000;
 
     function fetch(url, id, type, callback, yesterday){
         $.post(url, {
@@ -115,7 +116,7 @@
         }, TODAY);
         setTimeout(function () {
             createChart(name, id, type)
-        }, 5 * 60 * 1000);
+        }, INTERVAL_TIME);
     }
     function start(){
         document.body.innerHTML = '';
