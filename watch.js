@@ -144,7 +144,7 @@
         for(var name in ids){
             var h1 = document.createElement('h1');
             h1.innerHTML = name;
-            h1.style.padding = '0 20px';
+            h1.style.padding = '10px 5px';
             h1.style.backgroundColor = '#eee';
             document.body.appendChild(h1);
             var div = document.createElement('div');
