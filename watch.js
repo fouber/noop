@@ -94,28 +94,28 @@
         var myChart = echarts.init(div);
         var opt = genOpt(name, TODAY);
         myChart.setOption(opt);
-        fetch('https://redis.qcloud.com/monitor/index/', id, type, function(data){
-            data = data.data.points[type];
-            var today = [];
-            data.forEach(function(value, index){
-                today.push(processData(name, value, index));
-            });
+        setTimeout(function f(){
             fetch('https://redis.qcloud.com/monitor/index/', id, type, function(data){
                 data = data.data.points[type];
-                var yesterday = [];
+                var today = [];
                 data.forEach(function(value, index){
-                    yesterday.push(processData(name, value, index));
+                    today.push(processData(name, value, index));
                 });
-                myChart.setOption({
-                    series: [
-                        { name: TODAY_STR, type: 'line', data: today },
-                        { name: YESTERDAY_STR, type: 'line', data: yesterday }
-                    ]
-                });
-            }, YESTERDAY);
-        }, TODAY);
-        setTimeout(function () {
-            createChart(name, id, type)
+                fetch('https://redis.qcloud.com/monitor/index/', id, type, function(data){
+                    data = data.data.points[type];
+                    var yesterday = [];
+                    data.forEach(function(value, index){
+                        yesterday.push(processData(name, value, index));
+                    });
+                    myChart.setOption({
+                        series: [
+                            { name: TODAY_STR, type: 'line', data: today },
+                            { name: YESTERDAY_STR, type: 'line', data: yesterday }
+                        ]
+                    });
+                    setTimeout(f, INTERVAL_TIME);
+                }, YESTERDAY);
+            }, TODAY);
         }, INTERVAL_TIME);
     }
     function start(){
