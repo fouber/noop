@@ -5,8 +5,8 @@
 
     var TODAY = 0;
     var YESTERDAY = 1;
-    var TODAY_STR = 'Today';
-    var YESTERDAY_STR = 'Yesterday';
+    var TODAY_STR = '今天';
+    var YESTERDAY_STR = '昨天';
 
     function fetch(url, id, type, callback, yesterday){
         $.post(url, {
@@ -132,16 +132,16 @@
             cacheRoute: 'crs-qad2l3w0'
         };
         var types = {
-            'in_flow': 'In Flow',
-            'out_flow': 'Out Flow',
-            'stat_get': 'Get Count',
-            'stat_set': 'Set Count',
-            // 'keys': 'Key Count',
-            // 'storage': 'Storage Used',
-            // 'storage_us': 'Storage Used Ratio',
-            // 'cpu_us': 'CPU',
+            'in_flow': '入网流量',
+            'out_flow': '出网流量',
+            'stat_get': 'Get数',
+            'stat_set': 'Set数',
+            'keys': 'Key总数',
+            // 'storage': '已使用容量',
+            // 'storage_us': '容量使用率',
+            // 'cpu_us': 'CPU负载',
             // 'qps': 'QPS',
-            // 'cache_hit_ratio': 'Cache Hit Ratio',
+            // 'cache_hit_ratio': '缓存命中率',
 
         };
         for(var name in ids){
