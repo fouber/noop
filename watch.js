@@ -4,10 +4,11 @@
     var YESTERDAY = 1;
     var TODAY_STR = '今天';
     var YESTERDAY_STR = '昨天';
+    var MC_GTK = 0;
 
     function fetch(url, id, type, callback, yesterday){
         $.post(url, {
-            mc_gtk:1986648287,
+            mc_gtk:MC_GTK,
             is_iniframe:0,
             instanceId: id,
             regionId:4,
@@ -147,6 +148,12 @@
             }
         }
     }
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/', false);
+    xhr.send();
+    xhr.responseText.replace(/mc_gtk=(\d+)/, function(m, $1){
+        MC_GTK = $1;
+    });
     if(window.echarts) {
         start();
     } else {
