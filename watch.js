@@ -94,7 +94,7 @@
         var myChart = echarts.init(div);
         var opt = genOpt(name, TODAY);
         myChart.setOption(opt);
-        setTimeout(function f(){
+        var f = function(){
             fetch('https://redis.qcloud.com/monitor/index/', id, type, function(data){
                 data = data.data.points[type];
                 var today = [];
@@ -116,7 +116,8 @@
                     setTimeout(f, INTERVAL_TIME);
                 }, YESTERDAY);
             }, TODAY);
-        }, INTERVAL_TIME);
+        };
+        setTimeout(f, INTERVAL_TIME);
         f();
     }
     function start(){
