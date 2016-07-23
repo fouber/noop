@@ -96,7 +96,11 @@
         myChart.setOption(opt);
         var f = function(){
             fetch('https://redis.qcloud.com/monitor/index/', id, type, function(data){
-                data = data.data.points[type];
+                if(data.retcode == 0){
+                    data = data.data.points[type];
+                } else {
+                    data = [];
+                }
                 var today = [];
                 data.forEach(function(value, index){
                     today.push(processData(name, value, index));
