@@ -18,7 +18,7 @@
     }
     function createDom(){
         var div = document.createElement('div');
-        div.style.width = '300px';
+        div.style.width = '400px';
         div.style.height = '200px';
         div.style.border = '1px solid #eee';
         div.style.margin = '5px';
