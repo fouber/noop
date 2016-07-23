@@ -149,11 +149,11 @@
         }
     }
     if(window.echarts) {
+        start();
+    } else {
         var script = document.createElement('script');
         script.src = 'https://fouber.github.io/noop/echarts.min.js';
         document.head.appendChild(script);
         script.onload = start;
-    } else {
-        start();
     }
 })();
