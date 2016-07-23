@@ -147,6 +147,7 @@
             var h1 = document.createElement('h1');
             h1.innerHTML = name;
             h1.style.padding = '10px 5px';
+            h1.style.marginBottom = '10px';
             h1.style.backgroundColor = '#eee';
             document.body.appendChild(h1);
             var div = document.createElement('div');
