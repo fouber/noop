@@ -20,7 +20,7 @@
         div.style.width = '500px';
         div.style.height = '300px';
         div.style.border = '1px solid #eee';
-        div.style.margin = '10px';
+        div.style.margin = '5px';
         div.style.display = 'inline-block';
         return div;
     }
@@ -120,7 +120,6 @@
     }
     function start(){
         document.body.innerHTML = '';
-        document.body.style.padding = '10px';
         var ids = {
             'cache2(x)': '05515d38-1684-4c73-96d4-878ecd6c6915',
             cache3: 'f6cf0e4a-91fb-4291-b94a-c5f162b7dbc1',
