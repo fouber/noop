@@ -117,6 +117,7 @@
                 }, YESTERDAY);
             }, TODAY);
         }, INTERVAL_TIME);
+        f();
     }
     function start(){
         document.body.innerHTML = '';
