@@ -1,5 +1,5 @@
 (function(){
-    var import = function(lib, callback, check){
+    var require = function(lib, callback, check){
         if(check && window.hasOwnProperty(check)){
             callback(window[check]);
         } else {
@@ -15,7 +15,7 @@
     var path = location.pathname;
     var id = path.match(/^\/(v|star)\/(\w+)/)[2];
     if(id){
-        import('zepto', function($){
+        require('zepto', function($){
             var fetch = function(callback){
                 var url = '/json/rooms/' + id + '/info4.json?t=' + Date.now();
                 $.get(url, function(data){
