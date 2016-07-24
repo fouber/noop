@@ -1,5 +1,8 @@
 (function(){
-
+    if(location.hostname != 'redis.qcloud.com'){
+        prompt('请在以下页面使用此工具：', 'http://redis.qcloud.com');
+        return;
+    }
     var TODAY = 0;
     var YESTERDAY = 1;
     var TODAY_STR = '今天';
@@ -94,7 +97,7 @@
         var myChart = echarts.init(div);
         var opt = genOpt(name, TODAY);
         myChart.setOption(opt);
-        var f = function(){
+        (function f(){
             fetch('https://redis.qcloud.com/monitor/index/', id, type, function(data){
                 if(data.retcode == 0){
                     data = data.data.points[type];
@@ -120,9 +123,7 @@
                     setTimeout(f, INTERVAL_TIME);
                 }, YESTERDAY);
             }, TODAY);
-        };
-        setTimeout(f, INTERVAL_TIME);
-        f();
+        })();
     }
     function start(){
         document.body.innerHTML = '';
