@@ -174,7 +174,7 @@
         start();
     } else {
         var script = document.createElement('script');
-        script.src = 'https://fouber.github.io/noop/echarts.min.js';
+        script.src = 'https://fouber.github.io/noop/lib/echarts.min.js';
         document.head.appendChild(script);
         script.onload = start;
     }
