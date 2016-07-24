@@ -101,22 +101,22 @@
         var myChart = echarts.init(div);
         var opt = genOpt(name, TODAY);
         myChart.setOption(opt);
-        (function f(){
-            fetch('https://redis.qcloud.com/monitor/index/', id, type, function(data){
-                if(data.retcode == 0){
-                    data = data.data.points[type];
-                } else {
-                    data = [];
-                }
-                var today = [];
-                data.forEach(function(value, index){
-                    today.push(processData(name, value, index));
-                });
+        fetch('https://redis.qcloud.com/monitor/index/', id, type, function(data){
+            if(data.retcode == 0){
+                data = data.data.points[type];
+            } else {
+                data = [];
+            }
+            var yesterday = [];
+            data.forEach(function(value, index){
+                yesterday.push(processData(name, value, index));
+            });
+            (function f(){
                 fetch('https://redis.qcloud.com/monitor/index/', id, type, function(data){
                     data = data.data.points[type];
-                    var yesterday = [];
+                    var today = [];
                     data.forEach(function(value, index){
-                        yesterday.push(processData(name, value, index));
+                        today.push(processData(name, value, index));
                     });
                     myChart.setOption({
                         series: [
@@ -125,9 +125,9 @@
                         ]
                     });
                     setTimeout(f, INTERVAL_TIME);
-                }, YESTERDAY);
-            }, TODAY);
-        })();
+                }, TODAY);
+            })();
+        }, YESTERDAY);
     }
     function start(){
         document.body.innerHTML = '';
