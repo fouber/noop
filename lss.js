@@ -7,4 +7,33 @@
         }
         return;
     }
+    if(window.jQuery) {
+        start();
+    } else {
+        var script = document.createElement('script');
+        script.src = 'https://fouber.github.io/noop/lib/jquery.min.js';
+        document.head.appendChild(script);
+        script.onload = start;
+    }
+    function start(){
+        do {
+            var roomId = prompt('请输入房间id：', 156);
+        } while(!isNaN(roomId));
+        $.ajax({
+            url: '/api/lss/v2/session/list?locale=zh-cn&_=' + Date.now(),
+            data: {
+                "keywordType": "description",
+                "keyword": "rtmp://live.quanmin.tv/live/" + roomId,
+                "order": "desc",
+                "pageNo": 1,
+                "pageSize": 20,
+                "status":"ALL",
+                "orderBy":"id"
+            },
+            dataType: 'json',
+            success: function(data) {
+                console.log(data);
+            }
+        });
+    }
 })();
