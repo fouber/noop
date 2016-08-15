@@ -18,8 +18,7 @@
     function start(){
         do {
             var roomId = prompt('请输入房间id：', 156);
-            debugger;
-            if(roomId === false) return;
+            if(roomId == null) return;
         } while(isNaN(roomId));
         $.ajax({
             url: '/api/lss/v2/session/list?locale=zh-cn&_=' + Date.now(),
