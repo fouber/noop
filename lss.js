@@ -22,6 +22,7 @@
         } while(isNaN(roomId));
         $.ajax({
             url: '/api/lss/v2/session/list?locale=zh-cn&_=' + Date.now(),
+            method: 'POST',
             data: {
                 "keywordType": "description",
                 "keyword": "rtmp://live.quanmin.tv/live/" + roomId,
