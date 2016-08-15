@@ -33,7 +33,7 @@
                 "status":"ALL",
                 "orderBy":"id"
             },
-            dataType: 'json',
+            dataType: 'JSON',
             success: function(data) {
                 console.log(data);
             }
