@@ -24,7 +24,7 @@
             url: '/api/lss/v2/session/list?locale=zh-cn&_=' + Date.now(),
             method: 'POST',
             contentType: 'application/json; charset=utf-8',
-            data: {
+            data: JSON.stringify({
                 "keywordType": "description",
                 "keyword": "rtmp://live.quanmin.tv/live/" + roomId,
                 "order": "desc",
@@ -32,7 +32,8 @@
                 "pageSize": 20,
                 "status":"ALL",
                 "orderBy":"id"
-            },
+            }),
+            processData: false,
             dataType: 'json',
             success: function(data) {
                 console.log(data);
