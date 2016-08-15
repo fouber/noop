@@ -23,6 +23,7 @@
         $.ajax({
             url: '/api/lss/v2/session/list?locale=zh-cn&_=' + Date.now(),
             method: 'POST',
+            processData: false,
             data: {
                 "keywordType": "description",
                 "keyword": "rtmp://live.quanmin.tv/live/" + roomId,
