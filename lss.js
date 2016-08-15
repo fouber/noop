@@ -18,6 +18,7 @@
     function start(){
         do {
             var roomId = prompt('请输入房间id：', 156);
+            debugger;
             if(roomId === false) return;
         } while(isNaN(roomId));
         $.ajax({
