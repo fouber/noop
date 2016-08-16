@@ -7,8 +7,9 @@
         <button onclick="max()">fullscreen</button>
         <script type="text/javascript">
             function max() {
-                var wscript = new ActiveXObject("Wscript.shell");
-                wscript.SendKeys("{F11}");
+                window.open("bigpage.html","fs","fullscreen=yes")
+                // var wscript = new ActiveXObject("Wscript.shell");
+                // wscript.SendKeys("{F11}");
             }
         </script>
     </body>
