@@ -1,5 +1,6 @@
 #!/bash/bin
 
+apt update
 apt install -y dante-server
 cp /etc/danted.conf /etc/danted.conf.bak
 echo > /etc/danted.conf
