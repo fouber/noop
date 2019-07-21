@@ -24,5 +24,4 @@ echo '    protocol: tcp udp' >> /etc/danted.conf
 echo '    log: connect disconnect' >> /etc/danted.conf
 echo '}' >> /etc/danted.conf
 echo '' >> /etc/danted.confx
-pm2 stop all
 service danted restart
