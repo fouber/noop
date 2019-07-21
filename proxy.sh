@@ -4,7 +4,7 @@ apt update
 apt install -y dante-server
 cp /etc/danted.conf /etc/danted.conf.bak
 echo > /etc/danted.conf
-echo 'logoutput: /root/.pm2/logs/dante.log' >> /etc/danted.conf
+echo 'logoutput: /tmp/dante.log' >> /etc/danted.conf
 echo 'internal: eth0 port = 1080' >> /etc/danted.conf
 echo 'external: eth0' >> /etc/danted.conf
 echo 'method: username none' >> /etc/danted.conf
